@@ -1,0 +1,54 @@
+{
+  "name": "AcademyInquiry",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "description": "Name of the aspiring student"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "course": {
+      "type": "string",
+      "description": "Course the student is interested in"
+    },
+    "message": {
+      "type": "string",
+      "description": "Optional note from the student"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "enrolled"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "full_name",
+    "phone",
+    "course"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
